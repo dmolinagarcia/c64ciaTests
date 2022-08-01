@@ -27,3 +27,11 @@ echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" 
 sudo apt update
 sudo apt install code
 
+ . Integración con GITHUB
+Instalar el plugin
+Autenticar con github
+Probar el repo
+
+
+ 
+
