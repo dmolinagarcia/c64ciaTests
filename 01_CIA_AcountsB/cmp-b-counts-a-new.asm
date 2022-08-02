@@ -3,14 +3,12 @@
 ;CYCLES = 64    ; 6567R5 6A, NTSC-M
 ;CYCLES = 63    ; 6569 (all revisions), PAL-B
 
-    !src "cmp-b-counts-a.asm"
+    !src "test.asm"
 
     ; note: this file must have the load address removed
     *=$4000
-!if 1 {
 !if CYCLES = 63 {
-    !bin "dump-oldcia.bin"
+    !bin "dump-newcia.bin"
 } else {
-    !bin "dump-oldcia-ntsc.bin"
-}
+    !bin "dump-newcia-ntsc.bin"
 }

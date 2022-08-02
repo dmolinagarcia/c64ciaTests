@@ -1,0 +1,25 @@
+
+all: generate.prg test.prg cmp-b-counts-a-old.prg cmp-b-counts-a-new.prg disk
+
+generate.prg: generate.asm
+	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o generate.prg generate.asm
+
+test.prg: test.asm
+	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o test.prg test.asm
+
+cmp-b-counts-a-old.prg: cmp-b-counts-a-old.asm test.asm
+	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o cmpold.prg cmp-b-counts-a-old.asm
+cmp-b-counts-a-new.prg: cmp-b-counts-a-new.asm test.asm
+	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o cmpnew.prg cmp-b-counts-a-new.asm
+
+disk: 
+	c1541 -format "cia01,00" d64 cia01.d64 \
+		-write generate.prg generate \
+		-write test.prg test \
+		-write cmpold.prg cmpold \
+		-write cmpnew.prg cmpnew
+
+clean:
+	rm -f *~
+	rm -f *.prg
+	rm -f *.d64
