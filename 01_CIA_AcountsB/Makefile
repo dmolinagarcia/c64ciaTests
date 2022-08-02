@@ -1,5 +1,5 @@
 
-all: generate.prg test.prg cmp-b-counts-a-old.prg cmp-b-counts-a-new.prg disk
+all: clean generate.prg test.prg cmp-b-counts-a-old.prg cmp-b-counts-a-new.prg disk run
 
 generate.prg: generate.asm
 	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o generate.prg generate.asm
@@ -19,6 +19,9 @@ disk:
 		-write cmpold.prg cmpold \
 		-write cmpnew.prg cmpnew
 
+run:
+	x64 -8 cia01.d64
+	
 clean:
 	rm -f *~
 	rm -f *.prg

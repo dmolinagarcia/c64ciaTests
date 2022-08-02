@@ -70,6 +70,6 @@ cd
 rm -rf  ~/Descargas/vice*
 
  . Instalar compiladores
- sudo apt install acme
+ sudo apt install acme dasm
  
 
