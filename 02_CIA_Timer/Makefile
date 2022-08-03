@@ -1,5 +1,5 @@
 
-all: clean cia-timer-oldcias.prg cia-timer-newcias.prg disk run
+all: clean cia-timer-oldcias.prg cia-timer-newcias.prg disk
 
 cia-timer-oldcias.prg: cia-timer.asm dump-oldcia.bin
 	dasm cia-timer.asm -DDUMP=0 -ocia-timer-oldcias.prg
@@ -11,9 +11,6 @@ disk:
 	c1541 -format "cia02,00" d64 cia02.d64 \
 		-write cia-timer-oldcias.prg old \
 		-write cia-timer-newcias.prg new
-
-run:
-	x64 -8 cia02.d64		
 
 clean:
 	rm -f *~
