@@ -20,6 +20,9 @@ pack:
 unpack:
 	rm -rf ciaTests.d81	
 
+run: 
+	x64 -drive8type 1581 -8 ciaTests.d81	
+
 
 
 #	for f in $(PRGS); do c1541 ciaTests.d81 -write $$f $$(basename $$f .prg); done 

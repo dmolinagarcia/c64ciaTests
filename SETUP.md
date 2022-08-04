@@ -70,6 +70,6 @@ cd
 rm -rf  ~/Descargas/vice*
 
  . Instalar compiladores
- sudo apt install acme dasm
+ sudo apt install acme dasm petcat
  
 
