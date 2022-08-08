@@ -70,6 +70,18 @@ cd
 rm -rf  ~/Descargas/vice*
 
  . Instalar compiladores
- sudo apt install acme dasm petcat
- 
+ sudo apt install acme dasm xa65 gcc
+
+ . Instalar exomizer
+cd
+wget https://bitbucket.org/magli143/exomizer/get/d748ae4c4248.zip
+unzip d748ae4c4248.zip 
+cd magli143-exomizer-d748ae4c4248
+cd src
+make
+sudo ln -s $(pwd)/exomizer /usr/bin/exomizer
+sudo ln -s $(pwd)/exobasic /usr/bin/exobasic
+
+
+
 
