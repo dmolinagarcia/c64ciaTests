@@ -1,15 +1,15 @@
 
 PROGS = \
-	cia1.prg \
-	cia2.prg \
-	cia3.prg \
-	cia3a.prg \
-	cia4.prg \
-	cia5.prg \
-	cia6.prg \
-	cia7.prg \
-	cia8.prg \
-	cia9.prg \
+	cia01.prg \
+	cia02.prg \
+	cia03.prg \
+	cia03a.prg \
+	cia04.prg \
+	cia05.prg \
+	cia06.prg \
+	cia07.prg \
+	cia08.prg \
+	cia09.prg \
 	cia10.prg \
 	cia11.prg \
 	cia12.prg \

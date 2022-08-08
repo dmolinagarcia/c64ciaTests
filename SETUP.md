@@ -70,7 +70,7 @@ cd
 rm -rf  ~/Descargas/vice*
 
  . Instalar compiladores
- sudo apt install acme dasm xa65 gcc
+ sudo apt install acme dasm xa65 gcc 64tass
 
  . Instalar exomizer
 cd

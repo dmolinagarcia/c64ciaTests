@@ -7,16 +7,16 @@ build:
 	make -C src all
 
 pack: build
-	exomizer sfx basic -o 08cia1.prg src/cia1.prg src/cia1data
-	exomizer sfx basic -o 08cia2.prg src/cia2.prg src/cia2data
-	exomizer sfx basic -o 08cia3.prg src/cia3.prg src/cia3data
-	exomizer sfx basic -o 08cia3a.prg src/cia3a.prg src/cia3adata
-	exomizer sfx basic -o 08cia4.prg src/cia4.prg src/cia4data
-	exomizer sfx basic -o 08cia5.prg src/cia5.prg src/cia5data
-	exomizer sfx basic -o 08cia6.prg src/cia6.prg src/cia6data
-	exomizer sfx basic -o 08cia7.prg src/cia7.prg src/cia7data
-	exomizer sfx basic -o 08cia8.prg src/cia8.prg src/cia8data
-	exomizer sfx basic -o 08cia9.prg src/cia9.prg src/cia9data
+	exomizer sfx basic -o 08cia01.prg src/cia01.prg src/cia01data
+	exomizer sfx basic -o 08cia02.prg src/cia02.prg src/cia02data
+	exomizer sfx basic -o 08cia03.prg src/cia03.prg src/cia03data
+	exomizer sfx basic -o 08cia03a.prg src/cia03a.prg src/cia03adata
+	exomizer sfx basic -o 08cia04.prg src/cia04.prg src/cia04data
+	exomizer sfx basic -o 08cia05.prg src/cia05.prg src/cia05data
+	exomizer sfx basic -o 08cia06.prg src/cia06.prg src/cia06data
+	exomizer sfx basic -o 08cia07.prg src/cia07.prg src/cia07data
+	exomizer sfx basic -o 08cia08.prg src/cia08.prg src/cia08data
+	exomizer sfx basic -o 08cia09.prg src/cia09.prg src/cia09data
 	exomizer sfx basic -o 08cia10.prg src/cia10.prg src/cia10data
 	exomizer sfx basic -o 08cia11.prg src/cia11.prg src/cia11data
 	exomizer sfx basic -o 08cia12.prg src/cia12.prg src/cia12data
@@ -24,23 +24,23 @@ pack: build
 	exomizer sfx basic -o 08cia14.prg src/cia14.prg src/cia14data
 	exomizer sfx basic -o 08cia15.prg src/cia15.prg src/cia15data
 
-	exomizer sfx basic -o 08cia3new.prg src/cia3.prg src/cia3data-new
-	exomizer sfx basic -o 08cia3anew.prg src/cia3a.prg src/cia3adata-new
-	exomizer sfx basic -o 08cia4new.prg src/cia4.prg src/cia4data-new
-	exomizer sfx basic -o 08cia8new.prg src/cia8.prg src/cia8data-new
+	exomizer sfx basic -o 08cia03new.prg src/cia03.prg src/cia03data-new
+	exomizer sfx basic -o 08cia03anew.prg src/cia03a.prg src/cia03adata-new
+	exomizer sfx basic -o 08cia04new.prg src/cia04.prg src/cia04data-new
+	exomizer sfx basic -o 08cia08new.prg src/cia08.prg src/cia08data-new
 	
 disk: pack
 	c1541 -format "cia08,00" d64 cia08.d64 \
-		-write 08cia1.prg 08cia1 \
-		-write 08cia2.prg 08cia2 \
-		-write 08cia3.prg 08cia3 \
-		-write 08cia3a.prg 08cia3a \
-		-write 08cia4.prg 08cia4 \
-		-write 08cia5.prg 08cia5 \
-		-write 08cia6.prg 08cia6 \
-		-write 08cia7.prg 08cia7 \
-		-write 08cia8.prg 08cia8 \
-		-write 08cia9.prg 08cia9 \
+		-write 08cia01.prg 08cia01 \
+		-write 08cia02.prg 08cia02 \
+		-write 08cia03.prg 08cia03 \
+		-write 08cia03a.prg 08cia03a \
+		-write 08cia04.prg 08cia04 \
+		-write 08cia05.prg 08cia05 \
+		-write 08cia06.prg 08cia06 \
+		-write 08cia07.prg 08cia07 \
+		-write 08cia08.prg 08cia08 \
+		-write 08cia09.prg 08cia09 \
 		-write 08cia10.prg 08cia10 \
 		-write 08cia11.prg 08cia11 \
 		-write 08cia12.prg 08cia12 \
@@ -49,16 +49,16 @@ disk: pack
 		-write 08cia15.prg 08cia15
 
 	c1541 -format "cia08,00" d64 cia08new.d64 \
-		-write 08cia1.prg 08cia1 \
-		-write 08cia2.prg 08cia2 \
-		-write 08cia3new.prg 08cia3 \
-		-write 08cia3anew.prg 08cia3a \
-		-write 08cia4new.prg 08cia4 \
-		-write 08cia5.prg 08cia5 \
-		-write 08cia6.prg 08cia6 \
-		-write 08cia7.prg 08cia7 \
-		-write 08cia8new.prg 08cia8 \
-		-write 08cia9.prg 08cia9 \
+		-write 08cia01.prg 08cia01 \
+		-write 08cia02.prg 08cia02 \
+		-write 08cia03new.prg 08cia03 \
+		-write 08cia03anew.prg 08cia03a \
+		-write 08cia04new.prg 08cia04 \
+		-write 08cia05.prg 08cia05 \
+		-write 08cia06.prg 08cia06 \
+		-write 08cia07.prg 08cia07 \
+		-write 08cia08new.prg 08cia08 \
+		-write 08cia09.prg 08cia09 \
 		-write 08cia10.prg 08cia10 \
 		-write 08cia11.prg 08cia11 \
 		-write 08cia12.prg 08cia12 \
