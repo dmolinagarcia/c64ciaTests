@@ -1,2 +1,4 @@
 *.prg
 *.d64
+.vscode
+.gitignore
