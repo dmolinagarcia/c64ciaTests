@@ -1,11 +1,12 @@
 TESTS=\
 	11alarm.prg 11alarmcond.prg 11alarmcond2.prg \
+	11tod4.prg 11tod4cia1.prg 11tod5.prg 11tod6.prg \
 	11fixhour.prg 11fixmin.prg 11fixsec.prg 11fixtsec.prg \
 	11powerup.prg 11hourtest.prg \
 	11writestop.prg 11readlatch.prg \
 	11stability.prg 11stabilityntsc.prg \
 	11hzsync0.prg 11hzsync1.prg 11hzsync2.prg 11hzsync3.prg 11hzsync4.prg 11hzsync5.prg \
-	11alarm0.prg 11alarm1.prg
+	11alarm0.prg 11alarm1.prg 11hammerfist0.prg 11hammerfist1.prg 11frogger.prg
 
 all: $(TESTS) disk
 
@@ -20,6 +21,15 @@ all: $(TESTS) disk
 	64tass -a -o 11alarm0.prg 11alarm0.asm
 11alarm1.prg: 11alarm1.asm
 	64tass -a -o 11alarm1.prg 11alarm1.asm	
+
+11tod4.prg: 11tod4.asm
+	64tass -a -o 11tod4.prg 11tod4.asm
+11tod4cia1.prg: 11tod4cia1.asm
+	64tass -a -o 11tod4cia1.prg 11tod4cia1.asm
+11tod5.prg: 11tod5.asm
+	64tass -a -o 11tod5.prg 11tod5.asm
+11tod6.prg: 11tod6.asm
+	64tass -a -o 11tod6.prg 11tod6.asm	
 
 11fixhour.prg: 11fixhour.s
 	acme -o 11fixhour.prg 11fixhour.s
@@ -59,11 +69,22 @@ all: $(TESTS) disk
 11hzsync5.prg: 11hzsync5.asm
 	64tass -a -o 11hzsync5.prg 11hzsync5.asm	
 
+11hammerfist0.prg: 11hammerfist0.asm
+	dasm 11hammerfist0.asm -o11hammerfist0.prg
+11hammerfist1.prg: 11hammerfist1.asm
+	dasm 11hammerfist1.asm -o11hammerfist1.prg
+
+11frogger.prg: 11frogger.asm
+	acme -f cbm -o 11frogger.prg 11frogger.asm
+
+
 disk: 
 	c1541 -format "cia11,00" d64 cia11.d64 \
 		-write 11alarm.prg 11alarm \
 		-write 11alarmcond.prg 11alarmcond \
 		-write 11alarmcond2.prg 11alarmcond2 \
+		-write 11alarm0.prg 11alarm0 \
+		-write 11alarm1.prg 11alarm1 \
 		-write 11fixhour.prg 11fixhour \
 		-write 11fixmin.prg 11fixmin \
 		-write 11fixsec.prg 11fixsec \
@@ -80,8 +101,13 @@ disk:
 		-write 11hzsync3.prg 11hzsync3 \
 		-write 11hzsync4.prg 11hzsync4 \
 		-write 11hzsync5.prg 11hzsync5 \
-		-write 11alarm0.prg 11alarm0 \
-		-write 11alarm1.prg 11alarm1
+		-write 11tod4.prg 11tod4 \
+		-write 11tod4cia1.prg 11tod4cia1 \
+		-write 11tod5.prg 11tod5 \
+		-write 11tod6.prg 11tod6 \
+		-write 11hammerfist0.prg 11hammerfist0 \
+		-write 11hammerfist1.prg 11hammerfist1 \
+		-write 11frogger.prg 11frogger		
 
 clean:
 	rm -f *.prg *.d64	
