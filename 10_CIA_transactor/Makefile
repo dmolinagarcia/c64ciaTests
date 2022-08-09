@@ -9,5 +9,5 @@ disk:
 		-write 10ciatest64.prg 10ciatest64
 
 clean:
-	$(RM) 10ciatest64.prg	
+	$(RM) 10ciatest64.prg cia10.d64
 
