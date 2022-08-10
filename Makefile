@@ -24,4 +24,4 @@ unpack:
 	rm -rf ciaTests.d81	ciaTests.d64
 
 run: 
-	x64 -8 ciaTests.d64 -cartcrt ../Epyx_FastLoad_1984_v2.crt
+	x64cd -8 ciaTests.d64 -cartcrt ../Epyx_FastLoad_1984_v2.crt
