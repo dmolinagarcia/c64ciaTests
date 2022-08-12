@@ -11,10 +11,14 @@ all: 03ciaports.prg 03ghosting.prg disk
 
 03ciaports.prg: 03ciaports.asm
 g03hosting.prg: 03ghosting.asm
-disk: 
-	c1541 -format "cia02,00" d64 cia03.d64 \
-		-write 03ciaports.prg 03ciaports \
-		-write 03ghosting.prg 03ghosting
+
+TESTNO=03
+
+disk:
+	DISKNAME=$$(echo cia${TESTNO}.d64) ;\
+	DISKLABEL=$$(echo cia${TESTNO}) ;\
+	c1541 -format "$${DISKLABEL},00" d64 $${DISKNAME} ;\
+	for f in $$(ls *prg); do c1541 $${DISKNAME} -write $$f $$(basename $$f .prg); done ;\
 
 clean:
 	-rm *.prg

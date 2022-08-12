@@ -14,7 +14,7 @@ TESTS=\
 	13sddelay.prg \
 	13sdinit.prg
 
-all: $(TESTS)
+all: $(TESTS) disk
 
 13spos-old.prg: 13sp.asm
 	acme -DONESHOT=1 -DCIA=0 -f cbm -o 13spos-old.prg 13sp.asm
@@ -50,3 +50,12 @@ all: $(TESTS)
 	
 clean:
 	rm -f *.prg
+
+TESTNO=13
+
+disk:
+	DISKNAME=$$(echo cia${TESTNO}.d64) ;\
+	DISKLABEL=$$(echo cia${TESTNO}) ;\
+	c1541 -format "$${DISKLABEL},00" d64 $${DISKNAME} ;\
+	for f in $$(ls *prg); do c1541 $${DISKNAME} -write $$f $$(basename $$f .prg); done ;\
+

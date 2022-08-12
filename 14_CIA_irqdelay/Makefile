@@ -1,3 +1,4 @@
+TESTNO=14
 
 all:
 	cl65 -C c64-asm.cfg -u __EXEHDR__ -o 14irq.prg 14irq.s
@@ -23,6 +24,13 @@ all:
 
 	rm -f *.o
 
+	DISKNAME=$$(echo cia${TESTNO}.d64) ;\
+	DISKLABEL=$$(echo cia${TESTNO}) ;\
+	c1541 -format "$${DISKLABEL},00" d64 $${DISKNAME} ;\
+	for f in $$(ls *prg); do c1541 $${DISKNAME} -write $$f $$(basename $$f .prg); done ;\
+
 clean:
 	rm -f *.prg
 	rm -f *~
+
+

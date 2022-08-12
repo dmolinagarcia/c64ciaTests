@@ -50,7 +50,7 @@ TESTS=\
     12c2gen-19.prg \
     12c2gen-39.prg \
 
-all: $(TESTS)
+all: $(TESTS) disk
 
 12c10_7f.prg: cia-sdr-icr-v3.asm
 	acme -f cbm -DCIA=1 -DCIATYPE=1 -DBAUDRATE=0 -DINTERACTIVEMODE=0 -o 12c10_7f.prg cia-sdr-icr-v3.asm
@@ -159,6 +159,15 @@ all: $(TESTS)
 
 generate:
 	cc generate.c -o generate
+
+TESTNO=12
+
+disk:
+	DISKNAME=$$(echo cia${TESTNO}.d64) ;\
+	DISKLABEL=$$(echo cia${TESTNO}) ;\
+	c1541 -format "$${DISKLABEL},00" d64 $${DISKNAME} ;\
+	for f in $$(ls *prg); do c1541 $${DISKNAME} -write $$f $$(basename $$f .prg); done ;\
+
 
 	
 rename: all

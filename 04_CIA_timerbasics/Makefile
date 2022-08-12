@@ -22,11 +22,12 @@ timer2new.prg:  timer2new.s timer2new.s
 clean:
 	rm -f *~
 	rm -f *.prg
+	rm -f *.d64
 
-disk: 
-	c1541 -format "cia04,00" d64 cia04.d64 \
-		-write 04timer.prg 04timer \
-		-write 04testold.prg 04testold \
-		-write 04testnew.prg 04testnew \
-		-write 04timer2old.prg 04timer2old \
-		-write 04timer2new.prg 04timer2new 		
+TESTNO=04
+
+disk:
+	DISKNAME=$$(echo cia${TESTNO}.d64) ;\
+	DISKLABEL=$$(echo cia${TESTNO}) ;\
+	c1541 -format "$${DISKLABEL},00" d64 $${DISKNAME} ;\
+	for f in $$(ls *prg); do c1541 $${DISKNAME} -write $$f $$(basename $$f .prg); done ;\

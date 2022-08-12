@@ -1,6 +1,6 @@
 SUBDIRS := $(wildcard *CIA*/.)
 
-all: $(SUBDIRS) pack list
+all: $(SUBDIRS) disk list
 $(SUBDIRS):
 	$(MAKE) -C $@ $(MAKECMDGOALS)	
 
@@ -10,7 +10,7 @@ $(SUBDIRS):
 
 .PHONY: $(TOPTARGETS) $(SUBDIRS)
 
-pack:
+disk:
 	$(eval PRGS := $(wildcard *CIA*/*prg))
 	c1541 -format "cia01,00" d64 ciaTests.d64
 #	c1541 ciaTests.d64 -write fb64.prg fb64

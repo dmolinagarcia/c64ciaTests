@@ -7,10 +7,13 @@ cia-timer-oldcias.prg: cia-timer.asm dump-oldcia.bin
 cia-timer-newcias.prg: cia-timer.asm dump-newcia.bin
 	dasm cia-timer.asm -DDUMP=1 -o02newcias.prg
 
-disk: 
-	c1541 -format "cia02,00" d64 cia02.d64 \
-		-write 02oldcias.prg old \
-		-write 02newcias.prg new
+TESTNO=02
+
+disk:
+	DISKNAME=$$(echo cia${TESTNO}.d64) ;\
+	DISKLABEL=$$(echo cia${TESTNO}) ;\
+	c1541 -format "$${DISKLABEL},00" d64 $${DISKNAME} ;\
+	for f in $$(ls *prg); do c1541 $${DISKNAME} -write $$f $$(basename $$f .prg); done ;\
 
 clean:
 	rm -f *~
