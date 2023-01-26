@@ -1,5 +1,7 @@
-6     "01cmpnew"          prg 
-6     "01cmpold"          prg 
+6     "01cmpnew"          prg   This tests TIMERB counting TIMERA overflows on CIA2.
+                                Tests 6526A
+6     "01cmpold"          prg   This tests TIMERB counting TIMERA overflows on CIA2.
+                                Tests 6526
 13    "02newcias"         prg 
 13    "02oldcias"         prg 
 8     "03ciaports"        prg 
