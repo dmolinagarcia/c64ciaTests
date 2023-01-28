@@ -33,7 +33,7 @@ NOTE:
 
 --------------------------------------------------------------------------------
 
-CIA1:   Timer A / B
+08cia01:   Timer A / B
 CIA2:   Timer A / B
 CIA3:   Timer A / B IRQ Flags
 CIA3a:  Timer A / B IRQ Flags
@@ -55,3 +55,24 @@ CIA14:  Timer A / B (Cascade)
 
 CIA15:  TOD Clock
 
+
+3     ""           prg 
+4     "08cia02"           prg 
+3     "08cia03anew"       prg 
+3     "08cia03a"          prg 
+3     "08cia03new"        prg 
+3     "08cia03"           prg 
+5     "08cia04new"        prg 
+5     "08cia04"           prg 
+5     "08cia05"           prg 
+5     "08cia06"           prg 
+3     "08cia07"           prg 
+4     "08cia08new"        prg 
+4     "08cia08"           prg 
+4     "08cia09"           prg 
+3     "08cia10"           prg 
+3     "08cia11"           prg 
+3     "08cia12"           prg 
+3     "08cia13"           prg 
+4     "08cia14"           prg 
+4     "08cia15"           prg 
