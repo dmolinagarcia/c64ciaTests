@@ -40,7 +40,7 @@ CIA3a:  Timer A / B IRQ Flags
 CIA4:   Timer A / B IRQ Flags
 CIA5:   Timer A / B IRQ Flags
 
-CIA6:   Timer A / B (Cascade)
+08cia06:   Timer A / B (Cascade)
 CIA7:   Timer A / B (Cascade)
 CIA8:   Timer A / B (Cascade) IRQ Flags
 
@@ -65,7 +65,7 @@ CIA15:  TOD Clock
 5     "08cia04new"        prg 
 5     "08cia04"           prg 
 5     "08cia05"           prg 
-5     "08cia06"           prg 
+5     ""           prg 
 3     "08cia07"           prg 
 4     "08cia08new"        prg 
 4     "08cia08"           prg 
