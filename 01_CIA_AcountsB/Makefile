@@ -4,7 +4,10 @@ generate.prg: generate.asm
 	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01generate.prg generate.asm
 
 test.prg: test.asm
-	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01test.prg test.asm
+	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01test.prg test.asm 
+
+bug.prg: bug.asm
+	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01bug.prg bug.asm 
 
 cmp-b-counts-a-old.prg: cmp-b-counts-a-old.asm test.asm
 	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01cmpold.prg cmp-b-counts-a-old.asm
