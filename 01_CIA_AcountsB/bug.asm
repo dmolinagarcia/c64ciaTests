@@ -163,7 +163,7 @@ loadb:
   ldy #$00
   sty $dd07
 forceloadb:
-  ldy #$d9
+  ldy #$db
   sty $dd0f
 
 readtb:
