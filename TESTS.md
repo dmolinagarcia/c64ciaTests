@@ -1,14 +1,5 @@
-Battle C64 CIA1 - Original NEW - CIA2 - Original OLD
-
-We replace CIA2 with 74HCT6526 too
-
-6     "01cmpnew"          prg   This tests TIMERB counting TIMERA overflows on CIA2.
-                                Tests 6526A
-                                Fails inmediately
-6     "01cmpold"          prg   This tests TIMERB counting TIMERA overflows on CIA2.
-                                Tests 6526
-                                Green. Success
-                                Fails with B2 NMI 51C6
+6     "01cmpnew"          prg   This tests TIMERB counting TIMERA overflows on CIA2. Tests 6526A. Fails inmediately
+6     "01cmpold"          prg   This tests TIMERB counting TIMERA overflows on CIA2. Tests 6526. Green. Success. 
 13    "02newcias"         prg 
 13    "02oldcias"         prg 
 8     "03ciaports"        prg 
@@ -148,4 +139,4 @@ We replace CIA2 with 74HCT6526 too
 2     "14irq-n"           prg 
 2     "14irqos-n"         prg 
 2     "14irqos"           prg 
-2     "14irq"             prg 
+2     "14irq"             prg
