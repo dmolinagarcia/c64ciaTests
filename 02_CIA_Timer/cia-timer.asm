@@ -66,7 +66,7 @@ nexttest:
   sta useirc+1
   lda cr,x
   sta usecr+1
-  da tlow,x
+  lda tlow,x
   sta usetlow+1
   lda cianr,x
   sta usecia11+2
