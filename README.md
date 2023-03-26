@@ -1,147 +1,151 @@
 # c64ciaTests
-Vice Test Suite ready to run on real C64
+Vice Test Suite ready to run on real C64. Adapted for 74HCT6526 testing.
+All tests come from https://sourceforge.net/p/vice-emu/code/HEAD/tree/testprogs/CIA/
+They have been adapted to fit everything within a single floppy.
+
+This repository is for personal use, but has been made public for the general interest. Please forgive me if you find mistakes or any odd issue. There will me tons of comments in Spanish.
 
 # Tests
-01cmpnew                Tests CIA2 Timers. TB counting TA. This is for NEW CIAs. Uses VIC interrupts so NO CIA IRQ needed.
-01cmpold                Tests CIA2 Timers. TB counting TA. This is for OLD CIAs. Uses VIC interrupts so NO CIA IRQ needed.
-02newcias               Tests CIA1 and 2 Timers in various modes. With and Withouth ICR. This is for NEW CIAs. 
-02oldcias               Tests CIA1 and 2 Timers in various modes. With and Withouth ICR. This is for NEW CIAs.
-03ciaports        
-03ghosting        
-04testnew         
-04testold         
-04timer2new       
-04timer2old       
-04timer           
-05ciamirrors      
-06reload0a        
-06reload0b        
-07dd0drw          
-08cia01           
-08cia02           
-08cia03anew       
-08cia03a          
-08cia03new        
-08cia03           
-08cia04new        
-08cia04           
-08cia05           
-08cia06           
-08cia07           
-08cia08new        
-08cia08           
-08cia09           
-08cia10           
-08cia11           
-08cia12           
-08cia13           
-08cia14           
-08cia15           
-09dd0dtest        
-10ciatest64       
-11alarm0          
-11alarm1          
-11alarmcond2      
-11alarmcond       
-11alarm           
-11fixhour         
-11fixmin          
-11fixsec          
-11fixtsec         
-11frogger         
-11hammerfist0     
-11hammerfist1     
-11hourtest        
-11hzsync0         
-11hzsync1         
-11hzsync2         
-11hzsync3         
-11hzsync4         
-11hzsync5         
-11powerup         
-11readlatch       
-11stabilityntsc   
-11stability       
-11tod4cia1        
-11tod4            
-11tod5            
-11tod6            
-11writestop       
-12c10_7f          
-12c10             
-12c11_7f          
-12c119            
-12c11             
-12c12             
-12c13_7f          
-12c139            
-12c13             
-12c14485-0_7f     
-12c14485-0        
-12c14485-1_7f     
-12c14485-19       
-12c14485-39       
-12c14485-3        
-12c14485-4_7f     
-12c14_7f          
-12c14             
-12c15             
-12c16             
-12c1gen-0_7f      
-12c1gen-0         
-12c1gen-1_7f      
-12c1gen-19        
-12c1gen-39        
-12c1gen-3         
-12c1gen-4_7f      
-12c20_7f          
-12c20             
-12c21_7f          
-12c219            
-12c239            
-12c23             
-12c24485-0_7f     
-12c24485-0        
-12c24485-1_7f     
-12c24485-19       
-12c24485-39       
-12c24485-3        
-12c24485-4_7f     
-12c24_7f          
-12c2gen-0_7f      
-12c2gen-0         
-12c2gen-1_7f      
-12c2gen-19        
-12c2gen-39        
-12c2gen-3         
-12c2gen-4_7f      
-13ir2cn           
-13ir2os           
-13ircn-new        
-13ircn-old        
-13iros-new        
-13iros-old        
-13sddelay         
-13sdinit          
-13sdload          
-13spcn-new        
-13spcn-old        
-13spos-new        
-13spos-old        
-14irq2-n          
-14irq2            
-14irq-c1-4-n      
-14irq-c1-4-o      
-14irq-c1os-4-n    
-14irq-c1os-4-o    
-14irq-c1os        
-14irq-c1          
-14irq-c2-4        
-14irq-c2os-4      
-14irq-c2os        
-14irq-c2          
-14irq-n           
-14irqos-n         
-14irqos           
-14irq             
-
+                                            OLD-MODE            NEW-MODE
+6     "01cmpnew"          prg               FAIL
+6     "01cmpold"          prg               OK
+13    "02newcias"         prg               FAIL
+13    "02oldcias"         prg               FAIL
+8     "03ciaports"        prg               seems ok
+12    "03ghosting"        prg               OK
+2     "04testnew"         prg               OK
+2     "04testold"         prg               FAIL
+3     "04timer2new"       prg               FAIL
+3     "04timer2old"       prg               FAIL
+2     "04timer"           prg               OK
+4     "05ciamirrors"      prg               FAIL(TOD)
+6     "06reload0a"        prg               OK
+6     "06reload0b"        prg               OK
+1     "07dd0drw"          prg               OK
+3     "08cia01"           prg               OK
+4     "08cia02"           prg               OK
+3     "08cia03anew"       prg               OK
+3     "08cia03a"          prg               
+3     "08cia03new"        prg 
+3     "08cia03"           prg 
+5     "08cia04new"        prg 
+5     "08cia04"           prg 
+5     "08cia05"           prg 
+5     "08cia06"           prg 
+3     "08cia07"           prg 
+4     "08cia08new"        prg 
+4     "08cia08"           prg 
+4     "08cia09"           prg 
+3     "08cia10"           prg 
+3     "08cia11"           prg 
+3     "08cia12"           prg 
+3     "08cia13"           prg 
+4     "08cia14"           prg 
+4     "08cia15"           prg 
+14    "09dd0dtest"        prg 
+4     "10ciatest64"       prg 
+2     "11alarm0"          prg 
+2     "11alarm1"          prg 
+1     "11alarmcond2"      prg 
+1     "11alarmcond"       prg 
+1     "11alarm"           prg 
+3     "11fixhour"         prg 
+3     "11fixmin"          prg 
+3     "11fixsec"          prg 
+3     "11fixtsec"         prg 
+1     "11frogger"         prg 
+1     "11hammerfist0"     prg 
+1     "11hammerfist1"     prg 
+6     "11hourtest"        prg 
+2     "11hzsync0"         prg 
+2     "11hzsync1"         prg 
+2     "11hzsync2"         prg 
+2     "11hzsync3"         prg 
+2     "11hzsync4"         prg 
+2     "11hzsync5"         prg 
+4     "11powerup"         prg 
+3     "11readlatch"       prg 
+14    "11stabilityntsc"   prg 
+14    "11stability"       prg 
+3     "11tod4cia1"        prg 
+3     "11tod4"            prg 
+4     "11tod5"            prg 
+4     "11tod6"            prg 
+4     "11writestop"       prg 
+4     "12c10_7f"          prg 
+4     "12c10"             prg 
+4     "12c11_7f"          prg 
+4     "12c119"            prg 
+4     "12c11"             prg 
+4     "12c12"             prg 
+4     "12c13_7f"          prg 
+4     "12c139"            prg 
+4     "12c13"             prg 
+4     "12c14485-0_7f"     prg 
+4     "12c14485-0"        prg 
+4     "12c14485-1_7f"     prg 
+4     "12c14485-19"       prg 
+4     "12c14485-39"       prg 
+4     "12c14485-3"        prg 
+4     "12c14485-4_7f"     prg 
+4     "12c14_7f"          prg 
+4     "12c14"             prg 
+4     "12c15"             prg 
+4     "12c16"             prg 
+4     "12c1gen-0_7f"      prg 
+4     "12c1gen-0"         prg 
+4     "12c1gen-1_7f"      prg 
+4     "12c1gen-19"        prg 
+4     "12c1gen-39"        prg 
+4     "12c1gen-3"         prg 
+4     "12c1gen-4_7f"      prg 
+4     "12c20_7f"          prg 
+4     "12c20"             prg 
+4     "12c21_7f"          prg 
+4     "12c219"            prg 
+4     "12c239"            prg 
+4     "12c23"             prg 
+4     "12c24485-0_7f"     prg 
+4     "12c24485-0"        prg 
+4     "12c24485-1_7f"     prg 
+4     "12c24485-19"       prg 
+4     "12c24485-39"       prg 
+4     "12c24485-3"        prg 
+4     "12c24485-4_7f"     prg 
+4     "12c24_7f"          prg 
+4     "12c2gen-0_7f"      prg 
+4     "12c2gen-0"         prg 
+4     "12c2gen-1_7f"      prg 
+4     "12c2gen-19"        prg 
+4     "12c2gen-39"        prg 
+4     "12c2gen-3"         prg 
+4     "12c2gen-4_7f"      prg 
+6     "13ir2cn"           prg 
+6     "13ir2os"           prg 
+4     "13ircn-new"        prg 
+4     "13ircn-old"        prg 
+5     "13iros-new"        prg 
+5     "13iros-old"        prg 
+3     "13sddelay"         prg 
+2     "13sdinit"          prg 
+2     "13sdload"          prg 
+12    "13spcn-new"        prg 
+12    "13spcn-old"        prg 
+12    "13spos-new"        prg 
+12    "13spos-old"        prg 
+5     "14irq2-n"          prg 
+5     "14irq2"            prg 
+2     "14irq-c1-4-n"      prg 
+2     "14irq-c1-4-o"      prg 
+2     "14irq-c1os-4-n"    prg 
+2     "14irq-c1os-4-o"    prg 
+2     "14irq-c1os"        prg 
+2     "14irq-c1"          prg 
+2     "14irq-c2-4"        prg 
+2     "14irq-c2os-4"      prg 
+2     "14irq-c2os"        prg 
+2     "14irq-c2"          prg 
+2     "14irq-n"           prg 
+2     "14irqos-n"         prg 
+2     "14irqos"           prg 
+2     "14irq"             prg
