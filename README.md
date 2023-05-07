@@ -6,26 +6,27 @@ They have been adapted to fit everything within a single floppy.
 This repository is for personal use, but has been made public for the general interest. Please forgive me if you find mistakes or any odd issue. There will me tons of comments in Spanish.
 
 # Tests
-                                            OLD-MODE            NEW-MODE
-6     "01cmpnew"          prg               FAIL
-6     "01cmpold"          prg               OK
-13    "02newcias"         prg               FAIL
-13    "02oldcias"         prg               FAIL
-8     "03ciaports"        prg               seems ok
-12    "03ghosting"        prg               OK
-2     "04testnew"         prg               OK
-2     "04testold"         prg               FAIL
-3     "04timer2new"       prg               FAIL
-3     "04timer2old"       prg               FAIL
-2     "04timer"           prg               OK
-4     "05ciamirrors"      prg               FAIL(TOD)
-6     "06reload0a"        prg               OK
-6     "06reload0b"        prg               OK
-1     "07dd0drw"          prg               OK
-3     "08cia01"           prg               OK
-4     "08cia02"           prg               OK
-3     "08cia03anew"       prg               OK
-3     "08cia03a"          prg               
+c1541 ciaTests.d64 -dir	
+0 "cia01           " 00 2a            OLD/NEW   CIA1/2  NEW    OLD
+6     "01cmpnew"          prg         NEW       2       OK
+6     "01cmpold"          prg         OLD       2
+13    "02newcias"         prg                   12      OK
+13    "02oldcias"         prg           
+8     "03ciaports"        prg                    
+12    "03ghosting"        prg                    
+2     "04testnew"         prg                           OK
+2     "04testold"         prg           
+3     "04timer2new"       prg                           OK
+3     "04timer2old"       prg           
+2     "04timer"           prg                           OK
+4     "05ciamirrors"      prg  
+6     "06reload0a"        prg           
+6     "06reload0b"        prg 
+1     "07dd0drw"          prg 
+3     "08cia01"           prg 
+4     "08cia02"           prg 
+3     "08cia03anew"       prg 
+3     "08cia03a"          prg 
 3     "08cia03new"        prg 
 3     "08cia03"           prg 
 5     "08cia04new"        prg 
@@ -148,4 +149,4 @@ This repository is for personal use, but has been made public for the general in
 2     "14irq-n"           prg 
 2     "14irqos-n"         prg 
 2     "14irqos"           prg 
-2     "14irq"             prg
+2     "14irq"             prg 

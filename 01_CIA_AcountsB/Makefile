@@ -1,13 +1,7 @@
-all: clean cmp-b-counts-a-old.prg cmp-b-counts-a-new.prg cmp-b-counts-a-hct.prg disk
+all: clean cmp-b-counts-a-old.prg cmp-b-counts-a-new.prg disk
 
 generate.prg: generate.asm
 	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01generate.prg generate.asm
-
-test.prg: test.asm
-	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01test.prg test.asm 
-
-bug.prg: bug.asm
-	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01bug.prg bug.asm 
 
 cmp-b-counts-a-old.prg: cmp-b-counts-a-old.asm test.asm
 	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01cmpold.prg cmp-b-counts-a-old.asm
@@ -15,9 +9,6 @@ cmp-b-counts-a-old.prg: cmp-b-counts-a-old.asm test.asm
 cmp-b-counts-a-new.prg: cmp-b-counts-a-new.asm test.asm
 	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01cmpnew.prg cmp-b-counts-a-new.asm
 	exomizer sfx basic -o 01cmpnew.prg 01cmpnew.prg
-cmp-b-counts-a-hct.prg: cmp-b-counts-a-hct.asm test.asm
-	acme -DCYCLES=63 -v1 --cpu 6502 -f cbm -o 01cmphct.prg cmp-b-counts-a-hct.asm
-	exomizer sfx basic -o 01cmphct.prg 01cmphct.prg
 
 TESTNO=01
 

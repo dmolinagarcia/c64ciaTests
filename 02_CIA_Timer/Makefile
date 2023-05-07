@@ -1,15 +1,13 @@
 
-all: clean cia-timer-oldcias.prg cia-timer-newcias.prg disk
+all: clean cia-timer-oldcias.prg cia-timer-newcias.prg  disk
 
 cia-timer-oldcias.prg: cia-timer.asm dump-oldcia.bin
 	dasm cia-timer.asm -DDUMP=0 -o02oldcias.prg
+	exomizer sfx basic -o 02oldcias.prg 02oldcias.prg
 	
 cia-timer-newcias.prg: cia-timer.asm dump-newcia.bin
 	dasm cia-timer.asm -DDUMP=1 -o02newcias.prg
-
-debug:   cia-timer-debug.asm dump-newcia.bin
-	dasm cia-timer-debug.asm -DDUMP=1 -o02debug.prg
-	x64 -fullscreen 02debug.prg 
+	exomizer sfx basic -o 02newcias.prg 02newcias.prg
 
 TESTNO=02
 
@@ -21,6 +19,5 @@ disk:
 
 clean:
 	rm -f *~
-	rm -f 02oldcias.prg
-	rm -f 02newcias.prg
+	rm -f *.prg	
 	rm -f cia02.d64
