@@ -10,15 +10,15 @@ c1541 ciaTests.d64 -dir
 0 "cia01           " 00 2a            OLD/NEW   CIA1/2  NEW    OLD
 6     "01cmpnew"          prg         NEW       2       OK
 6     "01cmpold"          prg         OLD       2
-13    "02newcias"         prg                   12      OK
-13    "02oldcias"         prg           
-8     "03ciaports"        prg                    
-12    "03ghosting"        prg                    
-2     "04testnew"         prg                           OK
-2     "04testold"         prg           
-3     "04timer2new"       prg                           OK
-3     "04timer2old"       prg           
-2     "04timer"           prg                           OK
+13    "02newcias"         prg         NEW       12      OK
+13    "02oldcias"         prg         OLD       12
+8     "03ciaports"        prg         N/A       1
+12    "03ghosting"        prg         N/A       1
+2     "04testnew"         prg         NEW       1            
+2     "04testold"         prg         OLD       1
+3     "04timer2new"       prg         NEW       2
+3     "04timer2old"       prg         OLD       2
+2     "04timer"           prg         N/A       1
 4     "05ciamirrors"      prg  
 6     "06reload0a"        prg           
 6     "06reload0b"        prg 
