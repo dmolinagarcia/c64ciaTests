@@ -7,11 +7,12 @@ This repository is for personal use, but has been made public for the general in
 
 # Tests
 c1541 ciaTests.d64 -dir	
-0 "cia01           " 00 2a            OLD/NEW   CIA1/2  NEW    OLD
-6     "01cmpnew"          prg         NEW       2       OK
-6     "01cmpold"          prg         OLD       2
-13    "02newcias"         prg         NEW       12      OK
-13    "02oldcias"         prg         OLD       12
+0 "cia01           " 00 2a            OLD/NEW   CIA1/2  NEW    OLD      Analysis Correct?
+6     "01cmpnew"          prg         NEW       2       OK      --          YES
+6     "01cmpold"          prg         OLD       2       --      OK          YES
+13    "02newcias"         prg         NEW       12      OK      --          YES
+13    "02oldcias"         prg         OLD       12      --      OK          YES
+
 8     "03ciaports"        prg         N/A       1
 12    "03ghosting"        prg         N/A       1
 2     "04testnew"         prg         NEW       1            
