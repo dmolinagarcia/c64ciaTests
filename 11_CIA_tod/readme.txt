@@ -67,6 +67,48 @@ REG F (CRB) bit7 (ALARM)   1=writing to TOD registers sets ALARM,
 
 --------------------------------------------------------------------------------
 
+Tests:
+R PRG                     SOURCE                  TEST
+x 11alarm.prg             11alarm.s               Disables TOD IRQ
+                                                  Set alarm to 00:00:02.0
+                                                  Set clock to 00:00:00.0
+                                                  Wait and test ICR2
+  11alarmcond.prg         11alarmcond.s           when bit 2 if ICR gets set (set time to current alarm time)
+  11alarmcond2.prg        11alarmcond2.s          when bit 2 if ICR gets set (set alarm time to current time)
+  11tod4.prg              11tod4.asm              Alarm testint at 00.00.00.0
+  11tod4cia1.prg          11tod4cia1.asm          Alarm testint at 00.00.00.0
+  11tod5.prg              11tod5.asm              Similar to prev
+  11tod6.prg              11tod6.asm              Similar to prev
+  11fixhour.prg           11fixhour.s             Count all states for HOURS
+  11fixmin.prg            11fixmin.s              Count all states for MINS
+  11fixsec.prg            11fixsec.s              Count all states for SECS
+  11fixtsec.prg           11fixtsec.s             Count all states for TENTHS
+  11powerup.prg           11powerup.s             Reading all TOD when it is not running does not startit
+                                                  Clock is stop at powerup until write to tenths
+                                                  Clock latched is cleared (Meaning????)
+                                                  Reset value 01:00:00.0 or 11:00:00.0
+                                                  AM/PM flag is random. mostly 0 
+                                                  Alarm set to 00:00:00.0. Only triggers by writing 00:00:00.0
+  11hourtest.prg          11hourtest.bas          Test flip of AM/PM      
+  11writestop.prg         11writestop.s           Test if stops when writing. Not happens when in ALARM
+  11readlatch.prg         11readlatch.s           Test the latch. Latch on read hours, unlatch on TSECS
+  11stability.prg         11stability.s DSYNC=0   Tests time between 0.1 consecutive alarms
+  11stabilityntsc.prg     11stability.s DSYNC=1   Tests time between 0.1 consecutive alarms
+  11hzsync0.prg           11hzsync0.asm           Ticker restarts when TOD is Stopped
+                                                  Ticker runs free, or stops with TOD?
+  11hzsync1.prg           11hzsync1.asm           Ticker restarts when TOD is Stopped
+  11hzsync2.prg           11hzsync2.asm           More ticker behaviour
+  11hzsync3.prg           11hzsync3.asm           More ticker
+  11hzsync4.prg           11hzsync4.asm           More ticker
+  11hzsync5.prg           11hzsync5.asm           More Ticker
+  11alarm0.prg            11alarm0.asm            Replicates slurpy
+  11alarm1.prg            11alarm1.asm            Replicates slurpy
+  11hammerfist0.prg       11hammerfist0.asm       Weird alarm used for copy protection
+  11hammerfist1.prg       11hammerfist1.asm       Same as above
+  11frogger.prg           11frogger.asm           Clock used in Frogger. Relies on startup values.
+
+
+
 More facts about the TOD clocks that are not in the datasheet:
 
 - the individual digits of the hour, min, sec and tsec registers are binary
@@ -119,9 +161,6 @@ NOTE: this test fails in VICE (r28032, fixed in r28654)
 
 --------------------------------------------------------------------------------
 
-* 11alarm.prg:
-
-check if ALARMTIME = TIME sets bit 2 of ICR
 
 * 11alarmcond.prg:  
 
